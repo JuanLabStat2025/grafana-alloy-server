@@ -3,7 +3,7 @@ otelcol.auth.basic "grafana" {
   password = env("GRAFANA_API_TOKEN")  
 }
 // 2. Exporter segundo  
-otelcol.exporter.otlphttp "grafana" {  
+otelcol.exporter.otlp "grafana" {  
   client {  
     endpoint = "tempo-prod-15-prod-us-west-0.grafana.net:443"  
     auth     = otelcol.auth.basic.grafana.handler  
