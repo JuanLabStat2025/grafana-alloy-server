@@ -5,7 +5,7 @@ otelcol.auth.basic "grafana" {
 // 2. Exporter segundo  
 otelcol.exporter.otlphttp "grafana" {  
   client {  
-    endpoint = "https://otlp-gateway-prod-us-west-0.grafana.net/otlp"  
+    endpoint = "tempo-prod-15-prod-us-west-0.grafana.net:443"  
     auth     = otelcol.auth.basic.grafana.handler  
   }  
 }  
@@ -16,6 +16,6 @@ otelcol.receiver.otlp "default" {
     endpoint = "0.0.0.0:4318"  
   }  
   output {  
-    traces = [otelcol.exporter.otlphttp.grafana.input]  
+    traces = [otelcol.exporter.otlp.grafana.input]  
   }  
 }
